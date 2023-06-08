@@ -28,6 +28,16 @@ h1 {
     font-size: 50px;
 }
 
+h2 {
+    font-size: 50px;
+    background-color: aquamarine;
+    padding: 10px 15px;
+    text-align: center;
+    display: none;
+    transform: translatey(300px);
+}
+
+
 input {
     font-size: 20px;
     font-weight: bold;
@@ -46,11 +56,10 @@ header {
 
 
 
-
 /* Main */
 
 main {
-    height: 1100px;
+    height: 1200px;
     background-color: #8d99ae;
     
 }
@@ -91,6 +100,10 @@ main {
     background-color: #d90429;
 }
 
+.active {
+    display: block;
+}
+
 /* Footer */
 
 footer {
@@ -98,3 +111,5 @@ footer {
     display: flex;
     align-items: center;
 }
+
+

@@ -3,6 +3,7 @@
 const button = document.getElementById('button');
 const grid = document.getElementById('grid');
 const scorePlaceHolder = document.getElementById('score')
+const gameOverMessage = document.getElementById('over')
 
 
 
@@ -16,8 +17,10 @@ const row = 10;
 const column = 10;
 const totalCells = column * row;
 const bombNumber = 16;
+const maxScore = totalCells - bombNumber
 let score = 0;
 let bombs;
+
 
 let bombed = false;
 
@@ -60,10 +63,13 @@ const onCellClick = (cell) => {
 
 
     if (cell.classList.contains('bombed')) {
-        location.reload();
+        gameOverMessage.classList.add('active')
     }
 
-
+    if (maxScore === score) {
+        gameOverMessage.innerText = 'HAI VINTO!!!'
+        gameOverMessage.classList.add('active')
+    }
 
     if (cell.classList.contains('clicked')) {
         return;
