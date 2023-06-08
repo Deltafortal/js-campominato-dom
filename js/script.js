@@ -2,6 +2,7 @@
 
 const button = document.getElementById('button');
 const grid = document.getElementById('grid');
+const scorePlaceHolder = document.getElementById('score')
 
 
 
@@ -15,6 +16,7 @@ const row = 10;
 const column = 10;
 const totalCells = column * row;
 const bombChance = 20;
+let score = 0;
 
 let bombed = false;
 
@@ -22,7 +24,7 @@ let bombed = false;
 
 
 
-// Funzioni ------------------------------
+// ! Funzioni ----------------------------------------------------------------------
 
 const createCell = () => {
 
@@ -45,6 +47,30 @@ const bomb = () => {
 }
 
 
+const onCellClick = (cell) => {
+    
+
+
+    if (cell.classList.contains('bombed')) {
+        location.reload();
+    }
+
+
+
+    if (cell.classList.contains('clicked')) {
+        return;
+    } 
+    else {
+        cell.classList.add('clicked')
+        score += 1;
+        scorePlaceHolder.innerText = score;
+        console.log(cell.innerText)
+    }
+
+        
+}
+
+// ! ---------------------------------------------------------------------------------
 
 // Al click del bottone genero la griglia
 
@@ -63,12 +89,7 @@ button.addEventListener('click', function(){
         }
 
         cell.addEventListener('click', function(){
-            cell.classList.add('clicked');
-            console.log(cell.innerText)
-
-            if (cell.classList.contains('bombed')) {
-                location.reload();
-            }
+            onCellClick(cell);
         }) 
 
         grid.appendChild(cell);
