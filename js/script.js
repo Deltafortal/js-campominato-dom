@@ -15,8 +15,9 @@ const scorePlaceHolder = document.getElementById('score')
 const row = 10;
 const column = 10;
 const totalCells = column * row;
-const bombChance = 20;
+const bombNumber = 16;
 let score = 0;
+let bombs;
 
 let bombed = false;
 
@@ -37,13 +38,20 @@ const createCell = () => {
 
 const bomb = () => {
 
-    const random = Math.floor(Math.random() * 100) + 1;
+    let bombList = [];
+    while(bombList.length <= bombNumber){
+        let random;
 
-    if(random <= bombChance) {
-        bombed = true;
+        do {
+            random = Math.floor(Math.random() * totalCells) + 1;
+
+        } while(bombList.includes(random));
+        bombList.push(random);
     }
 
-    return bombed
+    bombs = bombList;
+
+   
 }
 
 
@@ -83,6 +91,11 @@ button.addEventListener('click', function(){
         cell.innerText = i + 1;
 
         bomb();
+        
+        if (bombs.includes(i)) {
+            bombed = true;
+        }
+
         if (bombed === true) {
             cell.classList.add('bombed')
             bombed = false;
