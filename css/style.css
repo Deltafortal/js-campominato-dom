@@ -1,0 +1,92 @@
+/* Reset */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Root */
+
+
+
+/* Utils */
+
+.container {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+
+/* Generals */
+
+body {
+    background-color: #edf2f4;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+input {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 25px;
+}
+
+/* Header */
+
+header {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+
+/* Main */
+
+main {
+    height: 1100px;
+    background-color: #8d99ae;
+    display: flex;
+    align-items: center;
+}
+
+#grid {
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #2b2d42;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.clicked {
+    background-color: #219ebc;
+}
+
+
+.bombed.clicked {
+    background-color: #d90429;
+}
+
+/* Footer */
+
+footer {
+    height: 8vh;
+    display: flex;
+    align-items: center;
+}
